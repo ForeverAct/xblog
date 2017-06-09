@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xblog.domain.article.dao.ArticleMapper">
+
+    <resultMap type="com.xblog.domain.article.entity.Article" id="articleResultMap">
+        <id property="id" column="id"/>
+        <result property="articleNo" column="article_no" jdbcType="VARCHAR" />
+        <result property="title" column="title" jdbcType="VARCHAR" />
+        <result property="author" column="author" jdbcType="VARCHAR" />
+        <result property="createTime" column="create_time" jdbcType="VARCHAR" />
+        <result property="modifyTime" column="modify_time" jdbcType="VARCHAR" />
+        <result property="status" column="status" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.xblog.domain.article.entity.Article" statementType="PREPARED">
+        <![CDATA[
+            INSERT INTO article (article_no, title, author, create_time, modify_time, status)
+            VALUES (#{articleNo},#{title},#{author},#{createTime},#{modifyTime},#{status})
+        ]]>
+    </insert>
+
+    <!-- 查询文章，根据id -->
+    <select id="getStudentByID" parameterType="Integer" resultMap="articleResultMap">
+        <![CDATA[
+            SELECT * from article WHERE id = #{articleId}
+        ]]>
+    </select>
+
+    <!-- 查询文章，根据id -->
+    <select id="getStudentByNo" parameterType="String" resultMap="articleResultMap">
+        <![CDATA[
+            SELECT * from article WHERE article_no = #{articleNo}
+        ]]>
+    </select>
+
+    <!-- 查询文章列表 -->
+    <!--<select id="getStudentPage" resultMap="articleResultMap">
+        <![CDATA[
+            SELECT * from article
+        ]]>
+    </select>-->
+
+</mapper>

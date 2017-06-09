@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xblog.domain.article.dao.ArticleContentMapper">
+
+    <resultMap type="com.xblog.domain.article.entity.ArticleContent" id="articleContentResultMap">
+        <id property="id" column="id"/>
+        <result property="articleNo" column="article_no" jdbcType="VARCHAR" />
+        <result property="content" column="content" jdbcType="VARBINARY" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.xblog.domain.article.entity.ArticleContent">
+        <![CDATA[
+            INSERT INTO article_content (article_no, content)
+            VALUES (#{articleNo},#{content})
+        ]]>
+    </insert>
+
+    <!-- 查询文章，根据id -->
+    <select id="get" parameterType="String" resultMap="articleContentResultMap">
+        <![CDATA[
+            SELECT * from article_content WHERE article_no = #{articleNo}
+        ]]>
+    </select>
+
+    <!-- 查询文章，根据id -->
+    <update id="update" parameterType="com.xblog.domain.article.entity.ArticleContent" >
+        <![CDATA[
+            UPDATE article_content set content = #{content} WHERE article_no = #{articleNo}
+        ]]>
+    </update>
+
+    <!-- 查询文章列表 -->
+    <!--<select id="getStudentPage" resultMap="articleResultMap">
+        <![CDATA[
+            SELECT * from article
+        ]]>
+    </select>-->
+
+</mapper>

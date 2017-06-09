@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <bean id="SpringContextTool" class="com.xblog.archi.context.SpringContextTool"></bean>
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list><!-- dataSourse连接池相关属性，代码不在此贴出，会放在打包好的项目里面 -->
+                <value>classpath:config/db.properties</value>
+                <!--<value>classpath:config/Memcached.properties</value>-->
+            </list>
+        </property>
+    </bean>
+    <!-- 线程池
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="5" />
+        <property name="maxPoolSize" value="10" />
+        <property name="WaitForTasksToCompleteOnShutdown" value="true" />
+    </bean>
+    -->
+    <!-- 开启注解 -->
+    <context:annotation-config />
+    <!-- 如果spring用了jpa，并且类型为LocalContainerEntityManagerFactoryBean，则组件注册在此配置文件出现即可，其余配置文件可忽略
+       使用component来替代annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入\ -->
+    <context:component-scan base-package="com.xblog" />
+    <!-- 数据源和事务配置  -->
+    <import resource="ApplicationContext-Transaction.xml" />
+    <!--<import resource="ApplicationContext-Scheduler.xml" />-->
+
+</beans>
