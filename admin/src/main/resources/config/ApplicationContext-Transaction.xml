@@ -16,7 +16,7 @@
         <property name="mapperLocations">
             <list>
                 <!--<value>classpath:com/xblog/domain/*/entity/*Mapper.xml</value>-->
-                <value>classpath:com/xblog/domain/article/entity/ArticleMapper.xml</value>
+                <value>classpath*:com/xblog/domain/article/entity/ArticleMapper.xml</value>
                 <value>classpath:com/xblog/domain/article/entity/ArticleContentMapper.xml</value>
             </list>
         </property>
