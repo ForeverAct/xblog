@@ -3,6 +3,7 @@ package com.xblog.archi.context;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+
 /**
  * Created by Administrator on 2017/4/25 0025.
  */
