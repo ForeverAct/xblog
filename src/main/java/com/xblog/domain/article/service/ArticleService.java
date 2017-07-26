@@ -20,6 +20,12 @@ public class ArticleService implements IArticleService {
     @Autowired
     private ArticleContentMapper articleContentMapper;
 
+    /**
+     * 新增文章
+     * @param article
+     * @param content
+     * @return
+     */
     public int insertArticle(Article article, ArticleContent content) {
         article.setArticleNo("111111");
         articleMapper.insert(article);
