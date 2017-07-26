@@ -1,7 +1,5 @@
 package com.xblog.domain.article.entity;
 
-import java.sql.Blob;
-
 /**
  * Created by Administrator on 2017/5/7 0007.
  */
