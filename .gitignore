@@ -2,3 +2,6 @@
 target/
 XBlog.iml
 .idea/
+/domain/domain.iml
+*.iml
+package-info.java
