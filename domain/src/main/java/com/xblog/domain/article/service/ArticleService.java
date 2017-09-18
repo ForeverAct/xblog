@@ -45,23 +45,55 @@ public class ArticleService implements IArticleService {
         return 0;
     }
 
+    /**
+     * 更新文章内容
+     *
+     * @param content
+     * @return
+     */
     public int updateArticleContent(ArticleContent content) {
         return 0;
     }
 
+    /**
+     * 更新文章扩展信息
+     *
+     * @param ext
+     * @return
+     */
     public int updateArticleExt(ArticleExt ext) {
         return 0;
     }
 
+    /**
+     * 删除文章
+     *
+     * @param id
+     * @param articleNo
+     * @return
+     */
     public int deleteArticle(long id, String articleNo) {
         return 0;
     }
 
+    /**
+     * 获取文章
+     *
+     * @param id
+     * @param articleNo
+     * @return
+     */
     public Article getArticle(long id, String articleNo) {
         return null;
     }
 
-    public List<Article> getArticleList() {
+    /**
+     * 获取文章列表
+     *
+     * @param page
+     * @return
+     */
+    public List<Article> getArticleList(int page) {
         return null;
     }
 }
