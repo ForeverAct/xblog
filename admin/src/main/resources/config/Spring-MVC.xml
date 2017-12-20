@@ -29,6 +29,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
+    <!-- HandlerMapping -->
+
+    <!-- HandlerAdapter -->
+
+
+    <!-- ViewResolver -->
+
     <!-- 多视图解析 .json .xml -->
     <!-- <bean id="cnManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         设置为true以忽略对Accept Header的支持
