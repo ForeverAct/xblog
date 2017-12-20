@@ -1,13 +1,20 @@
 package com.xblog.domain.channel.entity;
 
 /**
- * Created by Administrator on 2017/5/20 0020.
+ *
+ * @author Administrator
+ * @date 2017/5/20 0020
  */
 public class Channel {
     private long id;
-    private String no;
-    private String name;
-    private String parentNo;
+    /**
+     * 频道编号
+     */
+    private String channelNo;
+    /**
+     * 频道名称
+     */
+    private String channelName;
     private String createTime;
     private String modifyTime;
     private int status;
@@ -20,28 +27,20 @@ public class Channel {
         this.id = id;
     }
 
-    public String getNo() {
-        return no;
+    public String getChannelNo() {
+        return channelNo;
     }
 
-    public void setNo(String no) {
-        this.no = no;
+    public void setChannelNo(String channelNo) {
+        this.channelNo = channelNo;
     }
 
-    public String getName() {
-        return name;
+    public String getChannelName() {
+        return channelName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getParentNo() {
-        return parentNo;
-    }
-
-    public void setParentNo(String parentNo) {
-        this.parentNo = parentNo;
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
     }
 
     public String getCreateTime() {

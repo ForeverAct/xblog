@@ -1,12 +1,24 @@
 package com.xblog.domain.category.entity;
 
 /**
- * Created by Administrator on 2017/5/20 0020.
+ *
+ * @author Administrator
+ * @date 2017/5/20 0020
  */
 public class Category {
     private long id;
-    private String no;
-    private String name;
+    /**
+     * 分类编号
+     */
+    private String categoryNo;
+    /**
+     * 分类名称
+     */
+    private String categoryName;
+    /**
+     * 父编号
+     */
+    private String parentNo;
     private String createTime;
     private String modifyTime;
     private int status;
@@ -19,20 +31,28 @@ public class Category {
         this.id = id;
     }
 
-    public String getNo() {
-        return no;
+    public String getCategoryNo() {
+        return categoryNo;
     }
 
-    public void setNo(String no) {
-        this.no = no;
+    public void setCategoryNo(String categoryNo) {
+        this.categoryNo = categoryNo;
     }
 
-    public String getName() {
-        return name;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getParentNo() {
+        return parentNo;
+    }
+
+    public void setParentNo(String parentNo) {
+        this.parentNo = parentNo;
     }
 
     public String getCreateTime() {

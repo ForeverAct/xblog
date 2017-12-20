@@ -5,6 +5,9 @@ package com.xblog.domain.comment.entity;
  */
 public class Comment {
     private long id;
+    /**
+     * 评论
+     */
     private String comment;
     private String createTime;
     private String modifyTime;

@@ -1,12 +1,20 @@
 package com.xblog.domain.label.entity;
 
 /**
- * Created by Administrator on 2017/5/20 0020.
+ *
+ * @author Administrator
+ * @date 2017/5/20 0020
  */
 public class Label {
     private long id;
-    private String no;
-    private String name;
+    /**
+     * 标签编号
+     */
+    private String labelNo;
+    /**
+     * 标签名称
+     */
+    private String labelName;
     private String createTime;
     private String modifyTime;
     private int status;
@@ -19,20 +27,20 @@ public class Label {
         this.id = id;
     }
 
-    public String getNo() {
-        return no;
+    public String getLabelNo() {
+        return labelNo;
     }
 
-    public void setNo(String no) {
-        this.no = no;
+    public void setLabelNo(String labelNo) {
+        this.labelNo = labelNo;
     }
 
-    public String getName() {
-        return name;
+    public String getLabelName() {
+        return labelName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLabelName(String labelName) {
+        this.labelName = labelName;
     }
 
     public String getCreateTime() {

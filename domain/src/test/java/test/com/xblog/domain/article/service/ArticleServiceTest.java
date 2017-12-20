@@ -12,5 +12,7 @@ import test.BaseTest;
 public class ArticleServiceTest extends BaseTest {
 
     @Test
-    public void test() {}
+    public void test() {
+
+    }
 }

@@ -1,14 +1,35 @@
 package com.xblog.domain.article.entity;
 
 /**
- * Created by Administrator on 2017/5/20 0020.
+ *
+ * @author Administrator
+ * @date 2017/5/20 0020
  */
 public class ArticleExt {
     private long id;
+    /**
+     * 文章编号
+     */
     private String articleNo;
+    /**
+     * 频道编号
+     */
     private String channelNo;
+    /**
+     * 分类编号
+     */
     private String categoryNo;
+    /**
+     * 是否置顶
+     */
+    private int isTop;
+    /**
+     * 阅览数
+     */
     private long readNum;
+    /**
+     * 评论数
+     */
     private long commentNum;
 
     public long getId() {
@@ -57,5 +78,13 @@ public class ArticleExt {
 
     public void setCommentNum(long commentNum) {
         this.commentNum = commentNum;
+    }
+
+    public int getIsTop() {
+        return isTop;
+    }
+
+    public void setIsTop(int isTop) {
+        this.isTop = isTop;
     }
 }

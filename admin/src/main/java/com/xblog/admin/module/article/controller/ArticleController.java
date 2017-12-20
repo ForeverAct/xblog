@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by Administrator on 2017/8/5 0005.
+ *
+ * @author Administrator
+ * @date 2017/8/5 0005
  */
 @Controller
 @RequestMapping("/article")
