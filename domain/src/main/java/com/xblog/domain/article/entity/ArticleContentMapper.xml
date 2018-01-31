@@ -10,22 +10,22 @@
 
     <insert id="insert" parameterType="com.xblog.domain.article.entity.ArticleContent">
         <![CDATA[
-            INSERT INTO article_content (article_no, content)
-            VALUES (#{articleNo},#{content})
+            INSERT INTO article_content (article_no, content, modify_time)
+            VALUES (#{articleNo},#{content},#{modifyTime})
         ]]>
     </insert>
 
     <!-- 查询文章，根据id -->
-    <select id="get" parameterType="String" resultMap="articleContentResultMap">
+    <select id="getArticleContentByNo" parameterType="java.lang.String" resultMap="articleContentResultMap">
         <![CDATA[
             SELECT * from article_content WHERE article_no = #{articleNo}
         ]]>
     </select>
 
-    <!-- 查询文章，根据id -->
+    <!-- 查询文章，根据no -->
     <update id="update" parameterType="com.xblog.domain.article.entity.ArticleContent" >
         <![CDATA[
-            UPDATE article_content set content = #{content} WHERE article_no = #{articleNo}
+            UPDATE article_content set content = #{content}, modify_time = #{modifyTime} WHERE article_no = #{articleNo}
         ]]>
     </update>
 

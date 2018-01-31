@@ -2,7 +2,6 @@ package com.xblog.domain.article.service;
 
 import com.xblog.domain.article.entity.Article;
 import com.xblog.domain.article.entity.ArticleContent;
-import com.xblog.domain.article.entity.ArticleExt;
 
 import java.util.List;
 
@@ -16,9 +15,9 @@ public interface IArticleService {
      * @param content
      * @return
      */
-    public int insertArticle(Article article, ArticleContent content, ArticleExt ext);
+    public int insertArticle(Article article, ArticleContent content);
 
-    public int updateArticle(Article article, ArticleContent content, ArticleExt ext);
+    public int updateArticle(Article article, ArticleContent content);
 
     public int updateArticle(Article article);
 
@@ -30,13 +29,6 @@ public interface IArticleService {
      */
     public int updateArticleContent(ArticleContent content);
 
-    /**
-     * 更新文章扩展信息
-     *
-     * @param ext
-     * @return
-     */
-    public int updateArticleExt(ArticleExt ext);
 
     /**
      * 删除文章

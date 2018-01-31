@@ -3,10 +3,15 @@
 <mapper namespace="com.xblog.domain.article.dao.ArticleMapper">
 
     <resultMap type="com.xblog.domain.article.entity.Article" id="articleResultMap">
-        <id property="id" column="id"/>
+        <id property="id" column="id" jdbcType="INTEGER" />
         <result property="articleNo" column="article_no" jdbcType="VARCHAR" />
         <result property="title" column="title" jdbcType="VARCHAR" />
         <result property="author" column="author" jdbcType="VARCHAR" />
+        <result property="summary" column="summary" jdbcType="VARCHAR" />
+        <result property="categoryNo" column="category_no" jdbcType="VARCHAR" />
+        <result property="publishState" column="publish_state" jdbcType="INTEGER" />
+        <result property="publishTime" column="publish_time" jdbcType="VARCHAR" />
+        <result property="recommendState" column="recommend_state" jdbcType="INTEGER" />
         <result property="createTime" column="create_time" jdbcType="VARCHAR" />
         <result property="modifyTime" column="modify_time" jdbcType="VARCHAR" />
         <result property="status" column="status" jdbcType="INTEGER" />
@@ -14,30 +19,47 @@
 
     <insert id="insert" parameterType="com.xblog.domain.article.entity.Article" statementType="PREPARED">
         <![CDATA[
-            INSERT INTO article (article_no, title, author, create_time, modify_time, status)
-            VALUES (#{articleNo},#{title},#{author},#{createTime},#{modifyTime},#{status})
+            INSERT INTO article (article_no, title, author, summary, category_no, publish_state, publish_time, recommend_state, create_time, modify_time, status)
+            VALUES (#{articleNo},#{title},#{author},#{summary},#{categoryNo},#{publishState},#{publishTime},#{recommendState},#{createTime},#{modifyTime},#{status})
         ]]>
     </insert>
 
     <!-- 查询文章，根据id -->
-    <select id="getStudentByID" parameterType="Integer" resultMap="articleResultMap">
+    <select id="getArticleByID" parameterType="java.lang.Integer" resultMap="articleResultMap">
         <![CDATA[
             SELECT * from article WHERE id = #{articleId}
         ]]>
     </select>
 
     <!-- 查询文章，根据id -->
-    <select id="getStudentByNo" parameterType="String" resultMap="articleResultMap">
+    <select id="getArticleByNo" parameterType="java.lang.String" resultMap="articleResultMap">
         <![CDATA[
             SELECT * from article WHERE article_no = #{articleNo}
         ]]>
     </select>
 
-    <!-- 查询文章列表 -->
-    <!--<select id="getStudentPage" resultMap="articleResultMap">
+    <update id="update" parameterType="com.xblog.domain.article.entity.Article" statementType="PREPARED">
         <![CDATA[
-            SELECT * from article
+        update article set modify_time = #{modifyTime}
         ]]>
-    </select>-->
+        <if test = "null != title and '' != title">
+            , title = #{title}
+        </if>
+        <if test = "null != categoryNo and '' != categoryNo">
+            , category_no = #{categoryNo}
+        </if>
+        <if test = "null != summary and '' != summary">
+            , summary = #{summary}
+        </if>
+        <if test = "null != publishState and '' != publishState">
+            , publish_state = #{publishState}, publish_time = #{publishTime}
+        </if>
+        <if test = "null != recommendState and '' != recommendState">
+            , recommend_state = #{recommendState}
+        </if>
+        <![CDATA[
+        where article_no = #{articleNo}
+        ]]>
+    </update>
 
 </mapper>

@@ -1,12 +1,15 @@
 package com.xblog.domain.article.entity;
 
 /**
- * Created by Administrator on 2017/5/7 0007.
+ *
+ * @author Administrator
+ * @date 2017/5/7
  */
 public class ArticleContent {
     private long id;
     private String articleNo;
     private byte[] content;
+    private String modifyTime;
 
     public long getId() {
         return id;
@@ -30,5 +33,13 @@ public class ArticleContent {
 
     public void setContent(byte[] content) {
         this.content = content;
+    }
+
+    public String getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(String modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

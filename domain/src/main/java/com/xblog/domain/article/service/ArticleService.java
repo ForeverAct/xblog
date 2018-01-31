@@ -1,10 +1,10 @@
 package com.xblog.domain.article.service;
 
+import com.xblog.archi.common.generator.IDGenerator;
 import com.xblog.domain.article.dao.ArticleContentMapper;
 import com.xblog.domain.article.dao.ArticleMapper;
 import com.xblog.domain.article.entity.Article;
 import com.xblog.domain.article.entity.ArticleContent;
-import com.xblog.domain.article.entity.ArticleExt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,23 +26,22 @@ public class ArticleService implements IArticleService {
      * @param content
      * @return
      */
+    @Override
     public int insertArticle(Article article, ArticleContent content) {
-        article.setArticleNo("111111");
+        article.setArticleNo(IDGenerator.randomNumberUniq8());
         articleMapper.insert(article);
         content.setArticleNo(article.getArticleNo());
         return articleContentMapper.insert(content);
     }
 
-    public int insertArticle(Article article, ArticleContent content, ArticleExt ext) {
+    @Override
+    public int updateArticle(Article article, ArticleContent content) {
         return 0;
     }
 
-    public int updateArticle(Article article, ArticleContent content, ArticleExt ext) {
-        return 0;
-    }
-
+    @Override
     public int updateArticle(Article article) {
-        return 0;
+        return articleMapper.update(article);
     }
 
     /**
@@ -51,18 +50,9 @@ public class ArticleService implements IArticleService {
      * @param content
      * @return
      */
+    @Override
     public int updateArticleContent(ArticleContent content) {
-        return 0;
-    }
-
-    /**
-     * 更新文章扩展信息
-     *
-     * @param ext
-     * @return
-     */
-    public int updateArticleExt(ArticleExt ext) {
-        return 0;
+        return articleContentMapper.update(content);
     }
 
     /**
@@ -72,6 +62,7 @@ public class ArticleService implements IArticleService {
      * @param articleNo
      * @return
      */
+    @Override
     public int deleteArticle(long id, String articleNo) {
         return 0;
     }
@@ -83,6 +74,7 @@ public class ArticleService implements IArticleService {
      * @param articleNo
      * @return
      */
+    @Override
     public Article getArticle(long id, String articleNo) {
         return null;
     }
@@ -93,6 +85,7 @@ public class ArticleService implements IArticleService {
      * @param page
      * @return
      */
+    @Override
     public List<Article> getArticleList(int page) {
         return null;
     }

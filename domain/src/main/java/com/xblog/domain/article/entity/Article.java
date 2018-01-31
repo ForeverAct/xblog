@@ -1,16 +1,22 @@
 package com.xblog.domain.article.entity;
 
 /**
- * Created by Administrator on 2017/4/23 0023.
+ *
+ * @author Administrator
+ * @date 2017/4/23
  */
 public class Article {
     private long id;
     private String articleNo;
     private String title;
-//    private String content;
     private String author;
+    private String summary;
+    private String categoryNo;
+    private int publishState;
+    private String publishTime;
     private String createTime;
     private String modifyTime;
+    private int recommendState;
     private int status;
 
     public long getId() {
@@ -36,14 +42,6 @@ public class Article {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    /*public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }*/
 
     public String getAuthor() {
         return author;
@@ -75,5 +73,45 @@ public class Article {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getCategoryNo() {
+        return categoryNo;
+    }
+
+    public void setCategoryNo(String categoryNo) {
+        this.categoryNo = categoryNo;
+    }
+
+    public int getPublishState() {
+        return publishState;
+    }
+
+    public void setPublishState(int publishState) {
+        this.publishState = publishState;
+    }
+
+    public String getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(String publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    public int getRecommendState() {
+        return recommendState;
+    }
+
+    public void setRecommendState(int recommendState) {
+        this.recommendState = recommendState;
     }
 }

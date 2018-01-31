@@ -7,4 +7,7 @@ import com.xblog.domain.article.entity.ArticleContent;
  */
 public interface ArticleContentMapper {
     public int insert(ArticleContent content);
+    public ArticleContent getArticleContentByNo(String articleNo);
+    public int update(ArticleContent article);
+
 }
