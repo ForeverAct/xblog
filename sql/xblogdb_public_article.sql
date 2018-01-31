@@ -1,0 +1,1 @@
+INSERT INTO public.article (id, article_no, title, summary, category_no, author, publish_state, publish_time, recommend_state, create_time, modify_time, status) VALUES (2, '29418053', 'IntelliJ IDEA 最新激活码（截止到2018年1月30日）', 'IntelliJ IDEA 最新激活码（截止到2018年1月30日）', null, 'admin', 0, null, 0, '2018-01-31 16:29:57', '2018-01-31 16:58:07', 0);
