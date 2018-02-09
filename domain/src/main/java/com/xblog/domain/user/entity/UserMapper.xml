@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xblog.domain.article.dao.ArticleMapper">
+<mapper namespace="com.xblog.domain.user.entity.User">
 
-    <resultMap type="com.xblog.domain.article.entity.Article" id="articleResultMap">
+    <resultMap type="com.xblog.domain.user.entity.User" id="userResultMap">
         <id property="id" column="id" jdbcType="INTEGER" />
-        <result property="articleNo" column="article_no" jdbcType="VARCHAR" />
-        <result property="title" column="title" jdbcType="VARCHAR" />
-        <result property="author" column="author" jdbcType="VARCHAR" />
-        <result property="summary" column="summary" jdbcType="VARCHAR" />
-        <result property="categoryNo" column="category_no" jdbcType="VARCHAR" />
-        <result property="publishState" column="publish_state" jdbcType="INTEGER" />
-        <result property="publishTime" column="publish_time" jdbcType="VARCHAR" />
-        <result property="recommendState" column="recommend_state" jdbcType="INTEGER" />
+        <result property="userNo" column="user_no" jdbcType="VARCHAR" />
+        <result property="email" column="email" jdbcType="VARCHAR" />
+        <result property="userName" column="user_name" jdbcType="VARCHAR" />
+        <result property="password" column="password" jdbcType="VARCHAR" />
+        <result property="mobile" column="mobile" jdbcType="VARCHAR" />
+        <result property="userType" column="user_type" jdbcType="INTEGER" />
         <result property="createTime" column="create_time" jdbcType="VARCHAR" />
         <result property="modifyTime" column="modify_time" jdbcType="VARCHAR" />
         <result property="status" column="status" jdbcType="INTEGER" />
     </resultMap>
 
-    <insert id="insert" parameterType="com.xblog.domain.article.entity.Article" statementType="PREPARED">
+    <insert id="insert" parameterType="com.xblog.domain.user.entity.User" statementType="PREPARED">
         <![CDATA[
-            INSERT INTO article (article_no, title, author, summary, category_no, publish_state, publish_time, recommend_state, create_time, modify_time, status)
-            VALUES (#{articleNo},#{title},#{author},#{summary},#{categoryNo},#{publishState},#{publishTime},#{recommendState},#{createTime},#{modifyTime},#{status})
+            INSERT INTO sys_user (user_no, user_name, email, password, mobile, user_type, create_time, modify_time, status)
+            VALUES (#{userNo},#{userName},#{email},#{password},#{mobile},#{userType},#{createTime},#{modifyTime},#{status})
         ]]>
     </insert>
 
     <!-- 查询文章，根据id -->
-    <select id="getArticleByID" parameterType="java.lang.Integer" resultMap="articleResultMap">
+    <select id="getUserByID" parameterType="java.lang.Integer" resultMap="articleResultMap">
         <![CDATA[
-            SELECT * from article WHERE id = #{articleId}
+            SELECT * from sys_user WHERE id = #{id}
         ]]>
     </select>
 
     <!-- 查询文章，根据id -->
-    <select id="getArticleByNo" parameterType="java.lang.String" resultMap="articleResultMap">
+    <select id="getUserByNo" parameterType="java.lang.String" resultMap="articleResultMap">
         <![CDATA[
-            SELECT * from article WHERE article_no = #{articleNo}
+            SELECT * from sys_user WHERE user_no = #{userNo}
         ]]>
     </select>
 
-    <update id="update" parameterType="com.xblog.domain.article.entity.Article" statementType="PREPARED">
+    <update id="update" parameterType="com.xblog.domain.user.entity.User" statementType="PREPARED">
         <![CDATA[
-        update article set modify_time = #{modifyTime}
+        update sys_user set modify_time = #{modifyTime}
         ]]>
-        <if test = "null != title and '' != title">
-            , title = #{title}
+        <if test = "null != userName and '' != userName">
+            , user_name = #{userName}
         </if>
-        <if test = "null != categoryNo and '' != categoryNo">
-            , category_no = #{categoryNo}
+        <if test = "null != email and '' != email">
+            , email = #{email}
         </if>
-        <if test = "null != summary and '' != summary">
-            , summary = #{summary}
+        <if test = "null != mobile and '' != mobile">
+            , mobile = #{mobile}
         </if>
-        <if test = "null != publishState and '' != publishState">
-            , publish_state = #{publishState}, publish_time = #{publishTime}
-        </if>
-        <if test = "null != recommendState and '' != recommendState">
-            , recommend_state = #{recommendState}
+        <if test = "null != status and '' != status">
+            , status = #{status}
         </if>
         <![CDATA[
-        where article_no = #{articleNo}
+        where user_no = #{userNo}
         ]]>
     </update>
+
+    <select id="list" parameterType="java.util.HashMap" resultMap="userResultMap" statementType="PREPARED">
+        <![CDATA[
+            SELECT * from sys_user
+        ]]>
+    </select>
 
 </mapper>
