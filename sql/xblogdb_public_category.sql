@@ -1,6 +1,6 @@
 CREATE TABLE category
 (
-    id INTEGER DEFAULT nextval('category_id_seq'::regclass) PRIMARY KEY NOT NULL,
+    id SERIAL4 PRIMARY KEY NOT NULL,
     category_no VARCHAR(8) NOT NULL,
     category_name VARCHAR(16) NOT NULL,
     parent_no INTEGER DEFAULT 0 NOT NULL,

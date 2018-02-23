@@ -1,6 +1,6 @@
 CREATE TABLE article_content
 (
-    id INTEGER DEFAULT nextval('article_content_id_seq'::regclass) PRIMARY KEY NOT NULL,
+    id SERIAL4 PRIMARY KEY NOT NULL,
     article_no VARCHAR(12),
     content BYTEA,
     modify_time VARCHAR(20),

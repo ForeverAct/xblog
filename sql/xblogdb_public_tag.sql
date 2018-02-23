@@ -1,6 +1,6 @@
 CREATE TABLE tag
 (
-    id INTEGER DEFAULT nextval('tag_id_seq'::regclass) PRIMARY KEY NOT NULL,
+    id SERIAL4 PRIMARY KEY NOT NULL,
     tag_no VARCHAR(12) NOT NULL,
     tag VARCHAR(16) NOT NULL,
     create_time VARCHAR(20) NOT NULL

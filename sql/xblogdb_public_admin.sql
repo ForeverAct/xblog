@@ -1,6 +1,6 @@
 CREATE TABLE admin
 (
-    id INTEGER DEFAULT nextval('admin_id_seq'::regclass) PRIMARY KEY NOT NULL,
+    id SERIAL4 PRIMARY KEY NOT NULL,
     user_no VARCHAR(16) NOT NULL,
     user_name VARCHAR(16) NOT NULL,
     password VARCHAR(16) NOT NULL,

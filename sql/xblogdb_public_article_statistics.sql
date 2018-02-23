@@ -1,6 +1,6 @@
 CREATE TABLE article_statistics
 (
-    id INTEGER DEFAULT nextval('article_statistics_id_seq'::regclass) PRIMARY KEY NOT NULL,
+    id SERIAL4 PRIMARY KEY NOT NULL,
     article_no VARCHAR(12) NOT NULL,
     read_num INTEGER DEFAULT 1 NOT NULL,
     thumbsup_num INTEGER DEFAULT 1 NOT NULL,
