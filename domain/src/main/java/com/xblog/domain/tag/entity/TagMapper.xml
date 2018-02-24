@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xblog.domain.tag.dao.TagMapper">
+
+    <resultMap type="com.xblog.domain.tag.entity.Tag" id="tagResultMap">
+        <id property="id" column="id" jdbcType="INTEGER" />
+        <result property="no" column="tag_no" jdbcType="VARCHAR" />
+        <result property="name" column="tag_name" jdbcType="VARCHAR" />
+        <result property="createTime" column="create_time" jdbcType="VARCHAR" />
+        <result property="modifyTime" column="modify_time" jdbcType="VARCHAR" />
+        <result property="status" column="status" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.xblog.domain.tag.entity.Tag" statementType="PREPARED">
+        <![CDATA[
+            INSERT INTO label (label_no, label_name, create_time, modify_time, status)
+            VALUES (#{tag_no},#{tag_name},#{createTime},#{modifyTime},#{status})
+        ]]>
+    </insert>
+
+    <!-- 查询文章，根据id -->
+    <select id="getTagByID" parameterType="java.lang.Integer" resultMap="tagResultMap">
+        <![CDATA[
+            SELECT * from sys_user WHERE id = #{id}
+        ]]>
+    </select>
+
+    <!-- 查询用户，根据no -->
+    <select id="getTagByNo" parameterType="java.lang.String" resultMap="tagResultMap">
+        <![CDATA[
+            SELECT * from sys_user WHERE tag_no = #{tagNo}
+        ]]>
+    </select>
+
+    <update id="update" parameterType="com.xblog.domain.tag.entity.Tag" statementType="PREPARED">
+        <![CDATA[
+        update sys_user set modify_time = #{modifyTime}
+        ]]>
+        <if test = "null != userName and '' != userName">
+            , user_name = #{userName}
+        </if>
+        <if test = "null != email and '' != email">
+            , email = #{email}
+        </if>
+        <if test = "null != mobile and '' != mobile">
+            , mobile = #{mobile}
+        </if>
+        <if test = "null != status and '' != status">
+            , status = #{status}
+        </if>
+        <![CDATA[
+        where user_no = #{userNo}
+        ]]>
+    </update>
+
+    <select id="list" parameterType="java.util.HashMap" resultMap="tagResultMap" statementType="PREPARED">
+        <![CDATA[
+            SELECT * from sys_user
+        ]]>
+    </select>
+
+</mapper>

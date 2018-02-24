@@ -10,7 +10,7 @@ import java.util.List;
  * @author Administrator
  * @datetime 2018-02-09 21:06
  **/
-public class CategoryService implements ICategoryService {
+public class CategoryServiceImpl implements ICategoryService {
     @Override
     public int addCategory(Category category) {
         return 0;

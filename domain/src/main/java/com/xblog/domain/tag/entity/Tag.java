@@ -1,9 +1,11 @@
-package com.xblog.domain.label.entity;
+package com.xblog.domain.tag.entity;
 
 /**
- * Created by Administrator on 2017/5/20 0020.
+ *
+ * @author Administrator
+ * @date 2017/5/20
  */
-public class Label {
+public class Tag {
     private long id;
     private String no;
     private String name;

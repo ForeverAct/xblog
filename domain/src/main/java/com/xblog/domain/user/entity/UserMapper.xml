@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xblog.domain.user.entity.User">
+<mapper namespace="com.xblog.domain.user.dao.UserMapper">
 
     <resultMap type="com.xblog.domain.user.entity.User" id="userResultMap">
         <id property="id" column="id" jdbcType="INTEGER" />
@@ -9,7 +9,7 @@
         <result property="userName" column="user_name" jdbcType="VARCHAR" />
         <result property="password" column="password" jdbcType="VARCHAR" />
         <result property="mobile" column="mobile" jdbcType="VARCHAR" />
-        <result property="userType" column="user_type" jdbcType="INTEGER" />
+        <result property="type" column="user_type" jdbcType="INTEGER" />
         <result property="createTime" column="create_time" jdbcType="VARCHAR" />
         <result property="modifyTime" column="modify_time" jdbcType="VARCHAR" />
         <result property="status" column="status" jdbcType="INTEGER" />
@@ -18,21 +18,28 @@
     <insert id="insert" parameterType="com.xblog.domain.user.entity.User" statementType="PREPARED">
         <![CDATA[
             INSERT INTO sys_user (user_no, user_name, email, password, mobile, user_type, create_time, modify_time, status)
-            VALUES (#{userNo},#{userName},#{email},#{password},#{mobile},#{userType},#{createTime},#{modifyTime},#{status})
+            VALUES (#{userNo},#{userName},#{email},#{password},#{mobile},#{type},#{createTime},#{modifyTime},#{status})
         ]]>
     </insert>
 
     <!-- 查询文章，根据id -->
-    <select id="getUserByID" parameterType="java.lang.Integer" resultMap="articleResultMap">
+    <select id="getUserByID" parameterType="java.lang.Integer" resultMap="userResultMap">
         <![CDATA[
             SELECT * from sys_user WHERE id = #{id}
         ]]>
     </select>
 
-    <!-- 查询文章，根据id -->
-    <select id="getUserByNo" parameterType="java.lang.String" resultMap="articleResultMap">
+    <!-- 查询用户，根据no -->
+    <select id="getUserByNo" parameterType="java.lang.String" resultMap="userResultMap">
         <![CDATA[
             SELECT * from sys_user WHERE user_no = #{userNo}
+        ]]>
+    </select>
+
+    <!-- 查询用户，根据no -->
+    <select id="getUserByNamePass" parameterType="java.lang.String" resultMap="userResultMap">
+        <![CDATA[
+            SELECT * from sys_user WHERE user_name = #{userName} and password = #{password}
         ]]>
     </select>
 
