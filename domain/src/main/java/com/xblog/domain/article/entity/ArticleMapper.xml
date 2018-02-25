@@ -62,4 +62,10 @@
         ]]>
     </update>
 
+    <select id="listByPage" parameterType="java.util.HashMap" resultMap="articleResultMap" statementType="PREPARED">
+        <![CDATA[
+            SELECT * from article
+        ]]>
+    </select>
+
 </mapper>

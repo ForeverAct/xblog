@@ -2,8 +2,10 @@ package com.xblog.domain.tag.entity;
 
 /**
  *
- * @author Administrator
- * @date 2017/5/20
+ * @author WangYue
+ * @created 2018-02-25 10:07
+ * @modified 2018-02-25 10:07
+ * @version 0.0.1
  */
 public class Tag {
     private long id;

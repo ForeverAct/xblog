@@ -12,6 +12,10 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import test.BaseTest;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static org.hamcrest.Matchers.greaterThan;
 
 /**
@@ -27,15 +31,15 @@ public class ArticleServiceTest extends BaseTest {
     public void testInsert() {
         Article article = new Article();
         // article.setArticleNo(IDGenerator.randomNumberUniq8());
-        article.setTitle("IntelliJ IDEA 最新激活码（截止到2018年1月30日）");
+        article.setTitle("MyBatis拦截器实现分页功能");
         System.out.println(article.getTitle().length());
-        article.setSummary("IntelliJ IDEA 最新激活码（截止到2018年1月30日）");
+        article.setSummary("MyBatis拦截器实现分页功能");
         article.setCreateTime(DateFormatUtils.DEFAULT_DATE_TIME_STANDARD_FORMAT());
         article.setModifyTime(DateFormatUtils.DEFAULT_DATE_TIME_STANDARD_FORMAT());
         article.setAuthor("admin");
         ArticleContent articleContent = new ArticleContent();
         articleContent.setArticleNo(article.getArticleNo());
-        articleContent.setContent("IntelliJ IDEA 最新激活码（截止到2018年1月30日）".getBytes());
+        articleContent.setContent("首先说下实现原理。使用拦截器拦截原始的sql，然后加上分页查询的关键字和属性，拼装成新的sql语句再交给mybatis去执行。".getBytes());
         articleService.insertArticle(article, articleContent);
     }
 
@@ -67,5 +71,16 @@ public class ArticleServiceTest extends BaseTest {
                 "\n").getBytes());
         articleContent.setModifyTime(DateFormatUtils.DEFAULT_DATE_TIME_STANDARD_FORMAT());
         Assert.assertThat(articleService.updateArticleContent(articleContent), greaterThan(0));
+    }
+
+    @Test
+    public void testList() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("numPerPage", "2");
+        map.put("pageNum", "1");
+        List<Article> list = articleService.getArticleList(map);
+        System.out.println(list.size());
+        System.out.println(list.get(1).getTitle());
+        Assert.assertThat(list.size(), greaterThan(0));
     }
 }

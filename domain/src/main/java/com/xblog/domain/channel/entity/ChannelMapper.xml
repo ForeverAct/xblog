@@ -2,36 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xblog.domain.article.dao.ArticleMapper">
 
-    <resultMap type="com.xblog.domain.article.entity.Article" id="articleResultMap">
+    <resultMap type="com.xblog.domain.channel.entity.Channel" id="channelResultMap">
         <id property="id" column="id" jdbcType="INTEGER" />
-        <result property="articleNo" column="article_no" jdbcType="VARCHAR" />
+        <!--<result property="articleNo" column="article_no" jdbcType="VARCHAR" />
         <result property="title" column="title" jdbcType="VARCHAR" />
         <result property="author" column="author" jdbcType="VARCHAR" />
         <result property="summary" column="summary" jdbcType="VARCHAR" />
         <result property="categoryNo" column="category_no" jdbcType="VARCHAR" />
         <result property="publishState" column="publish_state" jdbcType="INTEGER" />
         <result property="publishTime" column="publish_time" jdbcType="VARCHAR" />
-        <result property="recommendState" column="recommend_state" jdbcType="INTEGER" />
+        <result property="recommendState" column="recommend_state" jdbcType="INTEGER" />-->
         <result property="createTime" column="create_time" jdbcType="VARCHAR" />
         <result property="modifyTime" column="modify_time" jdbcType="VARCHAR" />
         <result property="status" column="status" jdbcType="INTEGER" />
     </resultMap>
 
-    <insert id="insert" parameterType="com.xblog.domain.article.entity.Article" statementType="PREPARED">
+    <!--<insert id="insert" parameterType="com.xblog.domain.article.entity.Article" statementType="PREPARED">
         <![CDATA[
             INSERT INTO article (article_no, title, author, summary, category_no, publish_state, publish_time, recommend_state, create_time, modify_time, status)
             VALUES (#{articleNo},#{title},#{author},#{summary},#{categoryNo},#{publishState},#{publishTime},#{recommendState},#{createTime},#{modifyTime},#{status})
         ]]>
     </insert>
 
-    <!-- 查询文章，根据id -->
+    &lt;!&ndash; 查询文章，根据id &ndash;&gt;
     <select id="getArticleByID" parameterType="java.lang.Integer" resultMap="articleResultMap">
         <![CDATA[
             SELECT * from article WHERE id = #{articleId}
         ]]>
     </select>
 
-    <!-- 查询文章，根据id -->
+    &lt;!&ndash; 查询文章，根据id &ndash;&gt;
     <select id="getArticleByNo" parameterType="java.lang.String" resultMap="articleResultMap">
         <![CDATA[
             SELECT * from article WHERE article_no = #{articleNo}
@@ -60,6 +60,6 @@
         <![CDATA[
         where article_no = #{articleNo}
         ]]>
-    </update>
+    </update>-->
 
 </mapper>

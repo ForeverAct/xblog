@@ -4,9 +4,14 @@ import com.xblog.domain.article.entity.Article;
 import com.xblog.domain.article.entity.ArticleContent;
 
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Administrator on 2017/6/7 0007.
+ *
+ * @author WangYue
+ * @created 2018-02-25 10:07
+ * @modified 2018-02-25 10:07
+ * @version 0.0.1
  */
 public interface IArticleService {
     /**
@@ -17,8 +22,19 @@ public interface IArticleService {
      */
     public int insertArticle(Article article, ArticleContent content);
 
+    /**
+     * @param article
+     * @param content
+     *
+     * @return
+     */
     public int updateArticle(Article article, ArticleContent content);
 
+    /**
+     * @param article
+     *
+     * @return
+     */
     public int updateArticle(Article article);
 
     /**
@@ -51,8 +67,8 @@ public interface IArticleService {
     /**
      * 获取文章列表
      *
-     * @param page
+     * @param map
      * @return
      */
-    public List<Article> getArticleList(int page);
+    public List<Article> getArticleList(Map<String, String> map);
 }

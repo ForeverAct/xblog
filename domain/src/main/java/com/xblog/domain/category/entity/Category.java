@@ -2,8 +2,10 @@ package com.xblog.domain.category.entity;
 
 /**
  *
- * @author Administrator
- * @date 2017/5/20 0020
+ * @author WangYue
+ * @created 2018-02-25 10:07
+ * @modified 2018-02-25 10:07
+ * @version 0.0.1
  */
 public class Category {
     private long id;

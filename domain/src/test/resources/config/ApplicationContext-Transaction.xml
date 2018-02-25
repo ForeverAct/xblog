@@ -20,6 +20,8 @@
                 <!--<value>classpath:com/xblog/domain/article/entity/ArticleContentMapper.xml</value>-->
             </list>
         </property>
+        <!-- 设置配置文件地路径 分页插件配置文件 -->
+        <property name="configLocation" value="classpath:config/MyBatis-Config.xml" />
     </bean>
     <!--  配置扫描器  -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

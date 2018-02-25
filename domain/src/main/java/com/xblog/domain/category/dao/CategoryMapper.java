@@ -7,8 +7,10 @@ import java.util.Map;
 
 /**
  *
- * @author Administrator
- * @date 2018/2/9 0009
+ * @author WangYue
+ * @created 2018-02-25 10:07
+ * @modified 2018-02-25 10:07
+ * @version 0.0.1
  */
 public interface CategoryMapper {
 
@@ -18,7 +20,7 @@ public interface CategoryMapper {
 
     public Category getCategoryByNo(String categoryNo);
 
-    public Category getCategoryById(int id);
+    public Category getCategoryByID(int id);
 
     public List<Category> list(Map map);
 }

@@ -1,6 +1,7 @@
 package com.xblog.domain.article.service;
 
 import com.xblog.archi.common.generator.IDGenerator;
+import com.xblog.archi.mybatis.interceptor.Page;
 import com.xblog.domain.article.dao.ArticleContentMapper;
 import com.xblog.domain.article.dao.ArticleMapper;
 import com.xblog.domain.article.entity.Article;
@@ -8,13 +9,19 @@ import com.xblog.domain.article.entity.ArticleContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Administrator on 2017/4/23 0023.
+ *
+ * @author WangYue
+ * @created 2018-02-25 10:07
+ * @modified 2018-02-25 10:07
+ * @version 0.0.1
  */
 @Service
-public class ArticleService implements IArticleService {
+public class ArticleServiceImpl implements IArticleService {
     @Autowired
     private ArticleMapper articleMapper;
     @Autowired
@@ -82,11 +89,17 @@ public class ArticleService implements IArticleService {
     /**
      * 获取文章列表
      *
-     * @param page
+     * @param map
      * @return
      */
     @Override
-    public List<Article> getArticleList(int page) {
-        return null;
+    public List<Article> getArticleList(Map<String, String> map) {
+        Page page = new Page();
+        page.setLimit(Integer.parseInt(map.get("numPerPage")));
+        page.setOffset((Integer.parseInt(map.get("pageNum"))-1)*page.getLimit());
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("page", page);
+        List<Article> list = articleMapper.listByPage(param);
+        return list;
     }
 }
